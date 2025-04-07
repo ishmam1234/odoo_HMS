@@ -18,6 +18,8 @@
         'security/ir.model.access.csv',
         'data/sequence.xml',
         'views/patient_view.xml',
+        'reports/report.xml',
+        'reports/report_template.xml',
         'views/appointment_views.xml',
         'views/appointment_line_views.xml',
         'views/patient_tag_view.xml',

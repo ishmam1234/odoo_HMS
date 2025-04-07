@@ -17,6 +17,10 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patients">
+                <header>
+                <button name="%(action_report_patient_card)d" type="action"
+                        string="Print Card" class="btn-primary"/>
+                </header>
                 <sheet>
                     <group>
                        <group>
@@ -49,3 +53,18 @@
         </field>
     </record>
 </odoo>
+
+<!--<record id="view_patient_form" model="ir.ui.view">-->
+<!--    <field name="name">hospital.patient.form</field>-->
+<!--    <field name="model">hospital.patient</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--        <form string="Patient">-->
+<!--            ...-->
+<!--            <header>-->
+<!--                <button name="%(action_report_patient_card)d" type="action"-->
+<!--                        string="Print Card" class="btn-primary"/>-->
+<!--            </header>-->
+<!--            ...-->
+<!--        </form>-->
+<!--    </field>-->
+<!--</record>-->

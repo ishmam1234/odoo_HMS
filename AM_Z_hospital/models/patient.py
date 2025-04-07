@@ -1,4 +1,5 @@
 from odoo import api, models, fields
+from datetime import date
 
 
 class HospitalPatient(models.Model):
@@ -10,6 +11,19 @@ class HospitalPatient(models.Model):
         string="Name", required=True, tracking=True
     )
     date_of_birth = fields.Date(string="Date of Birth")
+
+    age = fields.Integer(string="Age", compute="_compute_age")
+
+    def _compute_age(self):
+        for rec in self:
+            if rec.date_of_birth:
+                today = date.today()
+                rec.age = today.year - rec.date_of_birth.year - (
+                        (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day)
+                )
+            else:
+                rec.age = 0
+
     description = fields.Text(string="Description")
     gender = fields.Selection(
         [('male','Male'), ('female', 'Female')],
